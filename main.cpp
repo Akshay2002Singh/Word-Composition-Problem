@@ -77,8 +77,10 @@ class trie
 void read_file(vector<string> &input_list){
     int choice;
     string file_name;
+    
+    // select input file 
     cout<<"Input file should be present in current working directory \n";
-    cout<<"Press 1 to select 'input_01.txt' and press 2 to select 'input_02.txt'";
+    cout<<"Press 1 to select 'input_01.txt' and press 2 to select 'input_02.txt' : ";
     cin>>choice;
     switch (choice){
         case 1 : file_name = "input_01.txt";
@@ -88,20 +90,35 @@ void read_file(vector<string> &input_list){
         default: cout<<"Invalid choice";
                 return;
     }
-    
+
+    // read file and push words in vector
+    ifstream Input_file(file_name);
+    // Use a while loop together with the getline() function to read the file line by line
+    string line;
+    while(getline(Input_file, line)) {
+        input_list.push_back(line);
+    }
+    // Close the file
+    Input_file.close();
 }
 
 int main()
 {
     // vector to store input strings 
     vector<string> input_list;
-    // call function to read input file and convert it into vector
+    // call function to read words from input file and insert them in vector
     read_file(input_list);
 
     if(input_list.size() == 0){
         // if size is 0 then it means file is empty 
         return 0;
     }
+
+    // print vector for testing 
+    // for(auto i:input_list){
+    //     cout<<i <<" => "<<i.length()<<endl;
+    // } 
+
 
 
     return 0;
