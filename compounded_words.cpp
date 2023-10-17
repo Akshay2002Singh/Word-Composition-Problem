@@ -79,9 +79,9 @@ void read_file(vector<string> &input_list, clock_t &start_time){
     int choice;
     string file_name;
     
-    // select input file 
+    // select input file
     cout<<"Input file should be present in current working directory \n";
-    cout<<"Press 1 to select 'input_01.txt' and press 2 to select 'input_02.txt' : ";
+    cout<<"Press 1 to select 'Input_01.txt' and press 2 to select 'Input_02.txt' : ";
     cin>>choice;
     switch (choice){
         case 1 : file_name = "input_01.txt";
@@ -201,8 +201,11 @@ int main()
     end_time = clock();
     clock_t time_taken = end_time-start_time;
     // show output 
+    cout<<endl;
     cout<<"Longest Compound Word : "<<largest<<endl;
     cout<<"Second Largest Compound Word : "<<second_largest<<endl;
     cout<<"Time taken to process input file : "<<time_taken<<" milli seconds"<<endl;
+    cout<<endl;
+    
     return 0;
 }
